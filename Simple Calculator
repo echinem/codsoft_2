@@ -1,0 +1,63 @@
+#include<iostream>
+using namespace std;
+
+double Add(double a, double b){
+    return a+b;
+}
+
+double Subtract(double a, double b){
+    return a-b;
+}
+
+double Multiply(double a, double b){
+    return a*b;
+}
+
+double Divide(double a, double b){
+    return a/b;
+}
+
+void Menu(){
+    cout << endl << endl;
+    cout << "ARITHMETIC OPERATIONS: " << endl;
+    cout << "\n\t [1] ADDITION \n\t [2] SUBTRACTION \n\t [3] MULTIPLICATION \n\t [4] DIVISION\n\n";
+}
+
+int main(){
+    cout << "============= SIMPLE CALCULATOR =============" << endl << endl;
+    double a, b;
+    cout << "Enter numbers: ";
+    cin >> a >> b;
+    int choice;
+    Menu();
+    cout << "Enter choice of operation to perform [1-4]: ";
+    cin >> choice;
+    
+    double answer;
+    switch(choice){
+        case 1:
+            answer = Add(a, b);
+            break;
+        case 2:
+            answer = Subtract(a, b);
+            break;
+        case 3:
+            answer = Multiply(a, b);
+            break;
+        case 4:
+            if(b==0){
+                cout << "Division by zero not possible."<<endl;
+                break;
+            }else{
+                answer = Divide(a, b);
+                break;
+            }
+        default:
+            cout << "Enter a valid operation (1-5)" <<endl;
+            break;
+        
+    };
+
+    cout << "Result = " << answer << endl;
+    return 0;
+}
